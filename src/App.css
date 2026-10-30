@@ -1,0 +1,454 @@
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(100% - 64px, 1120px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px 0 22px;
+}
+
+.topbar,
+.brand,
+.date-line,
+.card-topline,
+.card-heading,
+.reveal-button,
+.page-footer {
+  display: flex;
+  align-items: center;
+}
+
+.topbar {
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(218, 198, 155, 0.13);
+}
+
+.brand {
+  gap: 10px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: var(--gold);
+  border: 1px solid rgba(215, 185, 120, 0.48);
+  border-radius: 50%;
+}
+
+.topbar-note {
+  color: #b6a8cb;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+.intro {
+  max-width: 680px;
+  margin: 48px auto 38px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+}
+
+.eyebrow span {
+  width: 25px;
+  height: 1px;
+  background: rgba(215, 185, 120, 0.55);
+}
+
+.intro h1 {
+  margin: 17px 0 11px;
+  color: #fff7eb;
+  font-family: var(--serif);
+  font-size: clamp(44px, 6vw, 70px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+}
+
+.intro h1 em {
+  color: #dfc0ff;
+  font-weight: 500;
+}
+
+.date-line {
+  width: fit-content;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto 15px;
+  padding: 11px 20px;
+  color: #ffe4a3;
+  border: 1px solid rgba(240, 207, 130, 0.4);
+  border-radius: 999px;
+  background: linear-gradient(110deg, rgba(240, 207, 130, 0.12), rgba(196, 164, 237, 0.12));
+  box-shadow: 0 0 28px rgba(240, 207, 130, 0.1), inset 0 0 16px rgba(255, 255, 255, 0.025);
+  text-transform: capitalize;
+}
+
+.date-caption {
+  color: #d4c8e7;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+}
+
+.date-line time {
+  color: #fff2d1;
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
+.intro-copy {
+  max-width: 445px;
+  margin: 0 auto;
+  color: #f0e9fa;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.readings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.reading-card {
+  position: relative;
+  display: flex;
+  min-height: 540px;
+  flex-direction: column;
+  align-items: center;
+  padding: 27px 36px 32px;
+  overflow: hidden;
+  border: 1px solid rgba(241, 210, 255, 0.48);
+  border-radius: 9px;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(127, 79, 181, 0.34), transparent 47%),
+    linear-gradient(148deg, #392650, #21172f 72%),
+    #1b1729;
+  box-shadow: 0 24px 78px rgba(0, 0, 0, 0.34), 0 0 38px rgba(164, 104, 221, 0.12), inset 0 0 42px rgba(204, 157, 255, 0.08);
+  text-align: center;
+}
+
+.reading-card::before,
+.reading-card::after {
+  position: absolute;
+  inset: 7px;
+  pointer-events: none;
+  content: '';
+  border: 1px solid rgba(240, 218, 255, 0.22);
+}
+
+.reading-card::after {
+  inset: auto 50% 0;
+  width: 38px;
+  height: 38px;
+  transform: translate(-50%, 50%) rotate(45deg);
+  border: 1px solid rgba(255, 221, 153, 0.42);
+  background: #2b1d3e;
+}
+
+.wish-card {
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(179, 87, 160, 0.3), transparent 47%),
+    linear-gradient(148deg, #492544, #27172f 72%),
+    #1b1729;
+}
+
+.card-topline {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  justify-content: space-between;
+  color: #e1d4ef;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.card-orbit {
+  color: var(--gold);
+  font-size: 16px;
+}
+
+.card-art {
+  position: relative;
+  display: grid;
+  width: 184px;
+  height: 184px;
+  flex: 0 0 auto;
+  margin: 14px 0 12px;
+  place-items: center;
+}
+
+.sun-disc,
+.heart-moon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 88px;
+  height: 88px;
+  place-items: center;
+  color: #2a2033;
+  border: 1px solid rgba(247, 221, 162, 0.75);
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, #f3dda9, #be9e66 75%);
+  box-shadow: 0 0 35px rgba(222, 187, 116, 0.2), inset 0 0 0 5px rgba(52, 37, 51, 0.11);
+}
+
+.sun-disc span {
+  font-size: 32px;
+}
+
+.heart-moon {
+  color: #f0d7e4;
+  border-color: rgba(228, 185, 216, 0.75);
+  background: radial-gradient(circle at 38% 35%, #a884bd, #644b7c 75%);
+  box-shadow: 0 0 35px rgba(180, 139, 213, 0.24), inset 0 0 0 5px rgba(35, 25, 48, 0.14);
+}
+
+.heart-moon span {
+  margin-top: -5px;
+  font-family: var(--serif);
+  font-size: 52px;
+}
+
+.orbit {
+  position: absolute;
+  width: 135px;
+  height: 54px;
+  border: 1px solid rgba(222, 197, 149, 0.34);
+  border-radius: 50%;
+  transform: rotate(-31deg);
+}
+
+.orbit-two {
+  width: 125px;
+  height: 92px;
+  border-color: rgba(177, 150, 203, 0.24);
+  transform: rotate(55deg);
+}
+
+.star {
+  position: absolute;
+  color: #eddaa9;
+  text-shadow: 0 0 10px rgba(237, 218, 169, 0.6);
+}
+
+.star-a {
+  top: 10px;
+  right: 12px;
+  font-size: 12px;
+}
+
+.star-b {
+  bottom: 17px;
+  left: 10px;
+  font-size: 17px;
+}
+
+.wish-art .star {
+  color: #d7b5e8;
+  text-shadow: 0 0 10px rgba(215, 181, 232, 0.65);
+}
+
+.card-heading {
+  position: relative;
+  z-index: 1;
+  gap: 9px;
+  color: #ffe6ac;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.icon-medallion {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  color: var(--gold);
+  border: 1px solid rgba(215, 185, 120, 0.3);
+  border-radius: 50%;
+}
+
+.wish-card .icon-medallion {
+  color: #f0c3f4;
+  border-color: rgba(240, 195, 244, 0.52);
+}
+
+.message {
+  display: flex;
+  min-height: 70px;
+  max-width: 390px;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0 16px;
+  color: #f0e6f4;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.55;
+  transition: color 250ms ease;
+}
+
+.message-revealed {
+  color: #fffaf0;
+  font-size: 22px;
+}
+
+.reveal-button {
+  position: relative;
+  z-index: 2;
+  min-height: 50px;
+  justify-content: center;
+  gap: 9px;
+  margin-top: auto;
+  padding: 0 15px;
+  color: #171321;
+  border: 1px solid #e4c988;
+  border-radius: 2px;
+  background: linear-gradient(110deg, #e6d09b, #c8a86d);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.reveal-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 5px 22px rgba(215, 185, 120, 0.18);
+}
+
+.wish-card .reveal-button {
+  border-color: #f0c5ef;
+  background: linear-gradient(110deg, #f1c5e9, #cd91d0);
+}
+
+.page-footer {
+  justify-content: center;
+  gap: 12px;
+  margin-top: 37px;
+  color: #8d829b;
+  font-size: 8px;
+  letter-spacing: 0.24em;
+}
+
+.page-footer span {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.not-found {
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  justify-items: center;
+  gap: 16px;
+  color: var(--gold);
+  text-align: center;
+}
+
+.not-found h1 {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.not-found a {
+  color: #c5a9df;
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    width: min(100% - 36px, 500px);
+    padding-top: 18px;
+  }
+
+  .intro {
+    margin: 43px auto 30px;
+  }
+
+  .topbar-note {
+    max-width: 120px;
+    font-size: 7px;
+    line-height: 1.6;
+    text-align: right;
+  }
+
+  .readings {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 420px;
+  }
+
+  .reading-card {
+    min-height: 500px;
+    padding: 24px 24px 30px;
+  }
+
+  .intro-copy {
+    font-size: 15px;
+  }
+
+  .message {
+    font-size: 18px;
+  }
+
+  .message-revealed {
+    font-size: 20px;
+  }
+
+  .reveal-button {
+    width: 100%;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .date-line {
+    gap: 9px;
+    padding: 10px 15px;
+  }
+
+  .date-line time {
+    font-size: 18px;
+  }
+
+  .page-footer {
+    margin-top: 26px;
+    padding-bottom: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

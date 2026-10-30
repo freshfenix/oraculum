@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Nunito', sans-serif;
+  color: #fffaf4;
+  background: #0c0819;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --ink: #fff9f0;
+  --muted: #e2d9ed;
+  --gold: #ffda84;
+  --violet: #d7b4ff;
+  --serif: 'Lora', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 32%, rgba(108, 61, 158, 0.38), transparent 48%),
+    radial-gradient(ellipse at 4% 92%, rgba(149, 67, 133, 0.22), transparent 38%),
+    #0c0819;
+}
+
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  opacity: 0.3;
+  background-image: radial-gradient(#eadbb8 0.55px, transparent 0.8px);
+  background-size: 47px 47px;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #e6cc91;
+  outline-offset: 4px;
+}
+
+::selection {
+  color: #100d1b;
+  background: #d7b978;
+}

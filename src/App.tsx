@@ -133,8 +133,7 @@ function DailyReading() {
       </header>
 
       <section className="intro" aria-labelledby="page-title">
-        <div className="eyebrow"><span /> ПОСЛАННЯ ВСЕСВІТУ <span /></div>
-        <h1 id="page-title">Твій день <em>у світлі зірок</em></h1>
+        <h1 id="page-title" className="eyebrow"><span /> ПОСЛАННЯ ВСЕСВІТУ <span /></h1>
         <p className="date-line">
           <Sun size={21} aria-hidden="true" />
           <span className="date-caption"></span>

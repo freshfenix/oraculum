@@ -2,17 +2,17 @@
 
 :root {
   font-family: 'Nunito', sans-serif;
-  color: #fff8ec;
-  background: #170d18;
+  color: #fff8ff;
+  background: #241735;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --ink: #fff8ec;
-  --muted: #f0dfd1;
-  --gold: #ffd18b;
-  --violet: #efbdc4;
+  --ink: #fff8ff;
+  --muted: #e8dcf7;
+  --gold: #ffe6a8;
+  --violet: #e4c4ff;
   --serif: 'Lora', Georgia, serif;
 }
 
@@ -25,9 +25,10 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(ellipse at 50% 30%, rgba(137, 71, 77, 0.32), transparent 48%),
-    radial-gradient(ellipse at 4% 92%, rgba(157, 76, 80, 0.2), transparent 38%),
-    #170d18;
+    radial-gradient(ellipse at 50% 24%, rgba(169, 111, 226, 0.46), transparent 50%),
+    radial-gradient(ellipse at 8% 90%, rgba(221, 130, 195, 0.28), transparent 40%),
+    radial-gradient(ellipse at 96% 78%, rgba(114, 132, 224, 0.22), transparent 36%),
+    #241735;
 }
 
 body::before {
@@ -36,8 +37,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   content: '';
-  opacity: 0.38;
-  background-image: radial-gradient(#ffdaa9 0.7px, transparent 0.9px);
+  opacity: 0.48;
+  background-image: radial-gradient(#f6ddff 0.7px, transparent 0.9px);
   background-size: 39px 39px;
   mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
 }
@@ -49,11 +50,11 @@ a {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid #e6cc91;
+  outline: 2px solid #f0caff;
   outline-offset: 4px;
 }
 
 ::selection {
-  color: #100d1b;
-  background: #d7b978;
+  color: #241735;
+  background: #f0caff;
 }

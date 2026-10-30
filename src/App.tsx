@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router'
-import { MoonStar, Sparkles, Sun, WandSparkles } from 'lucide-react'
+import { ArrowUpRight, MoonStar, Sparkles, Sun, WandSparkles } from 'lucide-react'
 import './App.css'
 
 const predictions = [
@@ -12,6 +12,38 @@ const predictions = [
   'Твоя давня ідея готова побачити світ — зроби перший крок.',
   'Зміни, яких ти прагнеш, уже починаються з твого сьогоднішнього вибору.',
   'Дозволь собі сказати «так» тому, що наповнює тебе світлом.',
+  'День підкаже новий шлях там, де вчора бачилася лише стіна.',
+  'Твоя уважність допоможе помітити шанс, який інші пропустять.',
+  'Не поспішай із відповіддю: тиша сьогодні принесе ясність.',
+  'Маленький крок назустріч мрії матиме більшу силу, ніж здається.',
+  'Смілива ідея знайде прихильника у потрібний момент.',
+  'Ти можеш змінити хід дня одним добрим рішенням.',
+  'Відпочинок сьогодні стане початком нового натхнення.',
+  'Випадкова зустріч нагадає про те, що справді важливо.',
+  'Дозволь новому досвіду приємно здивувати тебе.',
+  'Те, що здавалося складним, почне складатися крок за кроком.',
+  'Твоя щирість відкриє двері до важливої розмови.',
+  'Сьогодні вдалий день, щоб довіритися першому кроку.',
+  'Звільни місце для нового — і можливість не забариться.',
+  'Уважно прислухайся до себе: відповідь уже поруч.',
+  'Добра новина знайде тебе тоді, коли ти найменше її чекаєш.',
+  'Твої зусилля помітять, навіть якщо зараз це неочевидно.',
+  'Мрія стає ближчою щоразу, коли ти обираєш діяти.',
+  'Сьогоднішня гнучкість приведе до кращого результату.',
+  'Ти знайдеш гармонію там, де дозволиш собі бути справжньою.',
+  'Новий задум заслуговує на шанс — почни з малого.',
+  'Щирий комплімент комусь повернеться до тебе теплом.',
+  'Неочікувана підказка допоможе побачити ситуацію по-новому.',
+  'Дай собі дозвіл пишатися тим, чого вже досягла.',
+  'Сьогоднішня цікавість приведе до корисного відкриття.',
+  'Важливе рішення стане легшим, коли обереш те, що додає спокою.',
+  'У твоїй наполегливості більше сили, ніж здається.',
+  'Вечір принесе приємне відчуття, що день прожито недарма.',
+  'Твоя доброта надихне когось зробити крок уперед.',
+  'Будь відкрита до змін: одна з них стане щасливою нагодою.',
+  'Пауза допоможе повернути увагу до справді важливого.',
+  'Ти ближче до мети, ніж могла подумати цього ранку.',
+  'Сьогодні варто довіритися можливості, що викликає тиху радість.',
 ]
 
 const wishes = [
@@ -23,16 +55,67 @@ const wishes = [
   'Бажаю тобі натхнення, затишку й тихої впевненості у завтрашньому дні.',
   'Нехай цей день нагадає: ти вже маєш у собі багато сили й світла.',
   'Бажаю маленького дива, великої любові та часу для себе.',
+  'Нехай сьогодні поруч будуть люди, з якими можна бути собою.',
+  'Бажаю тобі легкості в думках і тепла в кожній зустрічі.',
+  'Нехай навіть звичайні миті сьогодні стануть особливими.',
+  'Бажаю знайти час на те, що повертає тобі радість.',
+  'Нехай твої старання принесуть задоволення й добрий результат.',
+  'Бажаю сонячного настрою навіть тоді, коли за вікном хмарно.',
+  'Нехай у твоєму дні знайдеться місце для приємної несподіванки.',
+  'Бажаю тобі відчувати підтримку й пам’ятати про власну силу.',
+  'Нехай сьогоднішні кроки ведуть до життя, про яке ти мрієш.',
+  'Бажаю спокійного серця, ясних думок і добрих новин.',
+  'Нехай любов до себе супроводжує тебе в кожному рішенні.',
+  'Бажаю більше приводів сміятися й менше причин хвилюватися.',
+  'Нехай твоя щирість повернеться до тебе сторицею.',
+  'Бажаю зустріти сьогодні щось прекрасне й зберегти це в пам’яті.',
+  'Нехай цей день буде щедрим на натхнення та маленькі перемоги.',
+  'Бажаю м’якості до себе й сміливості для важливих мрій.',
+  'Нехай усе потрібне приходить до тебе у свій найкращий час.',
+  'Бажаю теплого слова саме тоді, коли воно найбільше потрібне.',
+  'Нехай твій внутрішній вогник сьогодні світить особливо яскраво.',
+  'Бажаю відчути гордість за себе — навіть за найменший крок.',
+  'Нехай день подарує тобі більше затишку, ніж турбот.',
+  'Бажаю довіряти собі й радіти власному шляху.',
+  'Нехай добрі думки знаходять тебе частіше за сумніви.',
+  'Бажаю щедрих обіймів, душевних розмов і тихої радості.',
+  'Нехай у твоєму житті розквітає все, що ти плекаєш із любов’ю.',
+  'Бажаю ясності в рішеннях і впевненості у своїх силах.',
+  'Нехай сьогодні буде достатньо часу і для справ, і для відпочинку.',
+  'Бажаю знаходити красу в дорозі, а не лише в її кінці.',
+  'Нехай поруч буде хтось, хто нагадає, як багато ти значиш.',
+  'Бажаю, щоб твої добрі наміри легко ставали реальністю.',
+  'Нехай цей день наповнить тебе вірою в хороше.',
+  'Бажаю затишного вечора й приємного передчуття нового дня.',
+  'Нехай у серці оселиться спокій, а на обличчі — усмішка.',
+  'Бажаю сил відпустити зайве й обрати те, що робить тебе щасливою.',
+  'Нехай твої мрії ростуть сміливо, а кроки до них будуть легкими.',
+  'Бажаю сьогодні побачити, скільки світла ти даруєш іншим.',
+  'Нехай кожна добра дрібниця стане нагадуванням: життя на твоєму боці.',
+  'Бажаю дня, після якого захочеться сказати: «Мені було добре».',
 ]
 
-function randomPhrase(phrases: string[], current: string | null) {
-  const options = phrases.filter((phrase) => phrase !== current)
+const readingImages = [
+  '/reading-art/solar-garden.svg',
+  '/reading-art/moonlit-lake.svg',
+  '/reading-art/golden-wildflowers.svg',
+  '/reading-art/rose-constellation.svg',
+]
+
+type Reading = { phrase: string; image: string }
+
+function randomReading(phrases: string[], current: Reading | null): Reading {
+  const options = phrases.flatMap((phrase) =>
+    readingImages
+      .filter((image) => image !== current?.image && phrase !== current?.phrase)
+      .map((image) => ({ phrase, image })),
+  )
   return options[Math.floor(Math.random() * options.length)]
 }
 
 function DailyReading() {
-  const [prediction, setPrediction] = useState<string | null>(null)
-  const [wish, setWish] = useState<string | null>(null)
+  const [prediction, setPrediction] = useState<Reading | null>(null)
+  const [wish, setWish] = useState<Reading | null>(null)
   const now = new Date()
   const today = new Intl.DateTimeFormat('uk-UA', {
     day: 'numeric',
@@ -54,34 +137,32 @@ function DailyReading() {
         <h1 id="page-title">Твій день <em>у світлі зірок</em></h1>
         <p className="date-line">
           <Sun size={21} aria-hidden="true" />
-          <span className="date-caption">СЬОГОДНІ</span>
+          <span className="date-caption"></span>
           <time dateTime={`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`}>{today}</time>
         </p>
         <p className="intro-copy">Зроби глибокий вдих, прислухайся до себе — і відкрий послання, яке резонує саме з тобою.</p>
       </section>
 
       <section className="readings" aria-label="Послання на сьогодні">
-        <article className="reading-card prediction-card">
-          <div className="card-topline"><span>КАРТА 01</span><span className="card-orbit">✧</span><span>ТВІЙ НАПРЯМ</span></div>
-          <div className="card-art" aria-hidden="true"><div className="sun-disc"><span>✦</span></div><span className="orbit orbit-one" /><span className="orbit orbit-two" /><span className="star star-a">✦</span><span className="star star-b">✧</span></div>
-          <div className="card-heading"><span className="icon-medallion"><MoonStar size={18} /></span><span>ПЕРЕДБАЧЕННЯ НА ДЕНЬ</span></div>
-          <p className={`message ${prediction ? 'message-revealed' : ''}`} aria-live="polite">
-            {prediction ?? 'Твоя карта чекає, коли ти будеш готова її відкрити.'}
-          </p>
-          <button className="reveal-button" type="button" onClick={() => setPrediction((current) => randomPhrase(predictions, current))}>
-            <Sparkles size={16} /> {prediction ? 'Відкрити інше передбачення' : 'Відкрити передбачення'} <span aria-hidden="true">↗</span>
+        <article className={`reading-card prediction-card${prediction ? ' is-revealed' : ''}`}>
+          <div className="card-heading"><MoonStar size={22} aria-hidden="true" /><h2>ПЕРЕДБАЧЕННЯ НА ДЕНЬ</h2></div>
+          {prediction && <div className="reading-result" aria-live="polite">
+            <img className="reading-image" src={prediction.image} alt="Містична ілюстрація до передбачення" />
+            <p className="message">{prediction.phrase}</p>
+          </div>}
+          <button className="reveal-button" type="button" onClick={() => setPrediction((current) => randomReading(predictions, current))}>
+            <Sparkles size={18} aria-hidden="true" /> <span>{prediction ? 'Інше передбачення' : 'Відкрити передбачення'}</span> <ArrowUpRight className="button-arrow" size={19} aria-hidden="true" />
           </button>
         </article>
 
-        <article className="reading-card wish-card">
-          <div className="card-topline"><span>КАРТА 02</span><span className="card-orbit">✧</span><span>ТВОЄ ТЕПЛО</span></div>
-          <div className="card-art wish-art" aria-hidden="true"><div className="heart-moon"><span>♡</span></div><span className="orbit orbit-one" /><span className="orbit orbit-two" /><span className="star star-a">✧</span><span className="star star-b">✦</span></div>
-          <div className="card-heading"><span className="icon-medallion"><WandSparkles size={18} /></span><span>ПОБАЖАННЯ НА ДЕНЬ</span></div>
-          <p className={`message ${wish ? 'message-revealed' : ''}`} aria-live="polite">
-            {wish ?? 'На тебе чекають слова, що зігріють серце.'}
-          </p>
-          <button className="reveal-button" type="button" onClick={() => setWish((current) => randomPhrase(wishes, current))}>
-            <Sparkles size={16} /> {wish ? 'Отримати інше побажання' : 'Отримати побажання'} <span aria-hidden="true">↗</span>
+        <article className={`reading-card wish-card${wish ? ' is-revealed' : ''}`}>
+          <div className="card-heading"><WandSparkles size={22} aria-hidden="true" /><h2>ПОБАЖАННЯ НА ДЕНЬ</h2></div>
+          {wish && <div className="reading-result" aria-live="polite">
+            <img className="reading-image" src={wish.image} alt="Містична ілюстрація до побажання" />
+            <p className="message">{wish.phrase}</p>
+          </div>}
+          <button className="reveal-button" type="button" onClick={() => setWish((current) => randomReading(wishes, current))}>
+            <Sparkles size={18} aria-hidden="true" /> <span>{wish ? 'Інше побажання' : 'Відкрити побажання'}</span> <ArrowUpRight className="button-arrow" size={19} aria-hidden="true" />
           </button>
         </article>
       </section>

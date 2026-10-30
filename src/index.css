@@ -2,17 +2,17 @@
 
 :root {
   font-family: 'Nunito', sans-serif;
-  color: #fffaf4;
-  background: #0c0819;
+  color: #fff8ec;
+  background: #170d18;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --ink: #fff9f0;
-  --muted: #e2d9ed;
-  --gold: #ffda84;
-  --violet: #d7b4ff;
+  --ink: #fff8ec;
+  --muted: #f0dfd1;
+  --gold: #ffd18b;
+  --violet: #efbdc4;
   --serif: 'Lora', Georgia, serif;
 }
 
@@ -25,9 +25,9 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(ellipse at 50% 32%, rgba(108, 61, 158, 0.38), transparent 48%),
-    radial-gradient(ellipse at 4% 92%, rgba(149, 67, 133, 0.22), transparent 38%),
-    #0c0819;
+    radial-gradient(ellipse at 50% 30%, rgba(137, 71, 77, 0.32), transparent 48%),
+    radial-gradient(ellipse at 4% 92%, rgba(157, 76, 80, 0.2), transparent 38%),
+    #170d18;
 }
 
 body::before {
@@ -36,9 +36,9 @@ body::before {
   inset: 0;
   pointer-events: none;
   content: '';
-  opacity: 0.3;
-  background-image: radial-gradient(#eadbb8 0.55px, transparent 0.8px);
-  background-size: 47px 47px;
+  opacity: 0.38;
+  background-image: radial-gradient(#ffdaa9 0.7px, transparent 0.9px);
+  background-size: 39px 39px;
   mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
 }
 

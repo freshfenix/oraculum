@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router'
-import { ArrowUpRight, MoonStar, Sparkles, Sun, WandSparkles } from 'lucide-react'
+import { MoonStar, Sun, WandSparkles } from 'lucide-react'
+import Header from './components/Header'
+import ReadingCard, { type Reading } from './components/ReadingCard'
 import './App.css'
 
 const predictions = [
@@ -102,8 +104,6 @@ const readingImages = [
   '/reading-art/rose-constellation.svg',
 ]
 
-type Reading = { phrase: string; image: string }
-
 function randomReading(phrases: string[], current: Reading | null): Reading {
   const options = phrases.flatMap((phrase) =>
     readingImages
@@ -124,13 +124,7 @@ function DailyReading() {
 
   return (
     <main className="page-shell">
-      <header className="topbar">
-        <a className="brand" href="/" aria-label="Оракул — на головну">
-          <span className="brand-mark"><MoonStar size={19} /></span>
-          <span>ORACULUM</span>
-        </a>
-        <span className="topbar-note">ТВОЄ ТИХЕ МІСЦЕ ДЛЯ НАТХНЕННЯ</span>
-      </header>
+      <Header />
 
       <section className="intro" aria-labelledby="page-title">
         <h1 id="page-title" className="eyebrow"><span /> ПОСЛАННЯ ВСЕСВІТУ <span /></h1>
@@ -143,27 +137,26 @@ function DailyReading() {
       </section>
 
       <section className="readings" aria-label="Послання на сьогодні">
-        <article className={`reading-card prediction-card${prediction ? ' is-revealed' : ''}`}>
-          <div className="card-heading"><MoonStar size={22} aria-hidden="true" /><h2>ПЕРЕДБАЧЕННЯ НА ДЕНЬ</h2></div>
-          {prediction && <div className="reading-result" aria-live="polite">
-            <img className="reading-image" src={prediction.image} alt="Містична ілюстрація до передбачення" />
-            <p className="message">{prediction.phrase}</p>
-          </div>}
-          <button className="reveal-button" type="button" onClick={() => setPrediction((current) => randomReading(predictions, current))}>
-            <Sparkles size={18} aria-hidden="true" /> <span>{prediction ? 'Інше передбачення' : 'Відкрити передбачення'}</span> <ArrowUpRight className="button-arrow" size={19} aria-hidden="true" />
-          </button>
-        </article>
-
-        <article className={`reading-card wish-card${wish ? ' is-revealed' : ''}`}>
-          <div className="card-heading"><WandSparkles size={22} aria-hidden="true" /><h2>ПОБАЖАННЯ НА ДЕНЬ</h2></div>
-          {wish && <div className="reading-result" aria-live="polite">
-            <img className="reading-image" src={wish.image} alt="Містична ілюстрація до побажання" />
-            <p className="message">{wish.phrase}</p>
-          </div>}
-          <button className="reveal-button" type="button" onClick={() => setWish((current) => randomReading(wishes, current))}>
-            <Sparkles size={18} aria-hidden="true" /> <span>{wish ? 'Інше побажання' : 'Відкрити побажання'}</span> <ArrowUpRight className="button-arrow" size={19} aria-hidden="true" />
-          </button>
-        </article>
+        <ReadingCard
+          className="prediction-card"
+          title="ПЕРЕДБАЧЕННЯ НА ДЕНЬ"
+          icon={<MoonStar size={22} aria-hidden="true" />}
+          reading={prediction}
+          imageAlt="Містична ілюстрація до передбачення"
+          actionLabel="Відкрити передбачення"
+          revealedActionLabel="Інше передбачення"
+          onReveal={() => setPrediction((current) => randomReading(predictions, current))}
+        />
+        <ReadingCard
+          className="wish-card"
+          title="ПОБАЖАННЯ НА ДЕНЬ"
+          icon={<WandSparkles size={22} aria-hidden="true" />}
+          reading={wish}
+          imageAlt="Містична ілюстрація до побажання"
+          actionLabel="Відкрити побажання"
+          revealedActionLabel="Інше побажання"
+          onReveal={() => setWish((current) => randomReading(wishes, current))}
+        />
       </section>
 
       <footer className="page-footer"><span>✧</span> ТИ — АВТОРКА СВОЄЇ ІСТОРІЇ <span>✧</span></footer>

@@ -141,7 +141,7 @@
   align-items: start;
 }
 
-.reading-card {
+.reading-card.MuiCard-root {
   --card-glow: rgba(221, 175, 255, 0.52);
   position: relative;
   display: flex;
@@ -185,7 +185,7 @@
   animation: twinkle 2.8s ease-in-out infinite;
 }
 
-.wish-card {
+.wish-card.MuiCard-root {
   --card-glow: rgba(255, 174, 233, 0.55);
   border-color: rgba(255, 197, 245, 0.64);
   background:
@@ -223,7 +223,7 @@
   line-height: 1.35;
 }
 
-.reveal-button {
+.reveal-button.MuiButton-root {
   position: relative;
   z-index: 2;
   min-height: 52px;
@@ -236,23 +236,28 @@
   background: linear-gradient(110deg, #ffe0fa, #d7b6ff 58%, #bca4ff);
   box-shadow: 0 5px 22px rgba(213, 163, 255, 0.34), 0 0 18px rgba(255, 199, 245, 0.28), inset 0 1px rgba(255, 255, 255, 0.78);
   cursor: pointer;
+  font-family: inherit;
   font-size: 15px;
   font-weight: 800;
+  letter-spacing: normal;
+  line-height: normal;
+  min-width: 0;
+  text-transform: none;
   transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.reveal-button:hover {
+.reveal-button.MuiButton-root:hover {
   transform: translateY(-2px);
   filter: brightness(1.07);
   box-shadow: 0 7px 28px rgba(213, 163, 255, 0.5), 0 0 22px rgba(255, 199, 245, 0.42);
 }
 
-.reveal-button:active {
+.reveal-button.MuiButton-root:active {
   transform: scale(0.98);
 }
 
-.reveal-button > svg:first-child {
+.reveal-button.MuiButton-root > svg:first-child {
   color: #8d5ba7;
 }
 
@@ -261,14 +266,14 @@
   stroke-width: 2.3;
 }
 
-.wish-card .reveal-button {
+.wish-card .reveal-button.MuiButton-root {
   color: #4b285d;
   border-color: #ffe2fa;
   background: linear-gradient(110deg, #ffe2f5, #f3bde8 58%, #d7b7ff);
   box-shadow: 0 5px 22px rgba(255, 157, 226, 0.32), 0 0 18px rgba(224, 180, 255, 0.24), inset 0 1px rgba(255, 255, 255, 0.78);
 }
 
-.reading-card.is-revealed {
+.reading-card.is-revealed.MuiCard-root {
   justify-content: flex-start;
   gap: 17px;
   padding-top: 28px;
@@ -413,7 +418,7 @@
     max-width: 440px;
   }
 
-  .reading-card {
+  .reading-card.MuiCard-root {
     min-height: 174px;
     gap: 20px;
     padding: 22px 18px;
@@ -438,14 +443,14 @@
     width: 20px;
   }
 
-  .reveal-button {
+  .reveal-button.MuiButton-root {
     width: min(100%, 340px);
     min-height: 50px;
     padding: 0 14px;
     font-size: 14px;
   }
 
-  .reading-card.is-revealed {
+  .reading-card.is-revealed.MuiCard-root {
     min-height: 0;
     gap: 15px;
     padding: 22px 18px 20px;
@@ -481,7 +486,7 @@
     font-size: 15px;
   }
 
-  .reveal-button {
+  .reveal-button.MuiButton-root {
     gap: 7px;
     font-size: 13px;
   }
